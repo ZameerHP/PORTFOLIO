@@ -40,11 +40,15 @@ export const ScrollLocker = ({ children, onNext, onPrev, className = "", id }: S
 
       if (e.deltaY > 0 && isAtBottom) {
         handleNext();
+        e.preventDefault();
+        e.stopPropagation();
         return;
       }
       
       if (e.deltaY < 0 && isAtTop) {
         handlePrev();
+        e.preventDefault();
+        e.stopPropagation();
         return;
       }
       
@@ -65,10 +69,14 @@ export const ScrollLocker = ({ children, onNext, onPrev, className = "", id }: S
       // Only trigger onNext/onPrev if there's significant movement to avoid accidental triggers
       if (deltaY > 10 && isAtBottom) {
         handleNext();
+        e.preventDefault();
+        e.stopPropagation();
         return;
       }
       if (deltaY < -10 && isAtTop) {
         handlePrev();
+        e.preventDefault();
+        e.stopPropagation();
         return;
       }
       
