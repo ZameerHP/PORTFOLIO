@@ -33,7 +33,7 @@ export interface FAQItem {
 }
 
 export const PORTRAITS = {
-  hero: "https://raw.githubusercontent.com/ZameerHP/PORTFOLIO/refs/heads/main/Remove_text_from_image_2K_202607120915.jpeg", // Custom high-end user background image
+  hero: "/hero-bg.jpeg", // Custom high-end user background image
   gelPortrait: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop", // Colorful gel/teal tone light portrait
   storytelling: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop", // Elegant woman, glasses
   innovation: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1200&auto=format&fit=crop", // Studio dramatic portrait
