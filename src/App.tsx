@@ -623,9 +623,9 @@ export default function App() {
                   src={heroImageSrc}
                   onError={handleImageError}
                   alt="Zameer Studio Background"
-                  className="w-full h-full object-cover z-20 select-none pointer-events-none filter brightness-[1.10] contrast-[1.05]"
+                  className="w-full h-full object-cover z-20 select-none pointer-events-none filter brightness-[1.05] contrast-[1.02]"
                   style={{ 
-                    objectPosition: "center 20%",
+                    objectPosition: "62% 20%",
                   }}
                   referrerPolicy="no-referrer"
                   id="hero-bg-image"
