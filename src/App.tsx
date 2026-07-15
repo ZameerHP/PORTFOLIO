@@ -544,11 +544,11 @@ export default function App() {
         >
           {currentSlide === 3 ? (
             <div className="flex flex-col">
-              <span className="font-bebas font-[900] text-[34px] leading-none tracking-normal">SELECTED PROJECTS</span>
-              <span className="font-display font-[500] text-[18px] text-black leading-none tracking-wide mt-1">our signature</span>
+              <span className="font-bebas font-[900] text-[24px] md:text-[34px] leading-none tracking-normal">SELECTED PROJECTS</span>
+              <span className="font-display font-[500] text-[14px] md:text-[18px] text-black leading-none tracking-wide mt-1">our signature</span>
             </div>
           ) : (
-            <span className="font-bebas font-[900] text-[34px] leading-none tracking-normal">
+            <span className="font-bebas font-[900] text-[24px] md:text-[34px] leading-none tracking-normal">
               {currentSlide === 1 ? "ABOUT US" : currentSlide === 0 ? "zamy dev" : ""}
             </span>
           )}
@@ -670,12 +670,12 @@ export default function App() {
               <div className="absolute inset-0 w-full h-full z-10 pointer-events-none" id="hero-content-wrapper">
                 {/* Left Hero Content */}
                 <div 
-                  className="absolute left-6 md:left-[60px] top-[140px] md:top-[170px] max-w-[500px] flex flex-col items-start z-30 pointer-events-auto" 
+                  className="absolute left-6 right-6 md:right-auto md:left-[60px] top-[140px] md:top-[170px] max-w-[500px] flex flex-col items-center md:items-start text-center md:text-left mx-auto md:mx-0 z-30 pointer-events-auto" 
                   id="hero-left-content"
                 >
                   {/* Headline */}
                   <h1 
-                    className="font-bebas font-[800] text-white text-[28px] uppercase tracking-normal leading-[1.05] text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                    className="font-bebas font-[800] text-white text-[28px] uppercase tracking-normal leading-[1.05] text-center md:text-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
                     style={{ maxWidth: "500px", letterSpacing: "0px" }}
                     id="hero-main-title"
                   >
@@ -702,10 +702,10 @@ export default function App() {
 
                 {/* Hero Title (Gigantic Typography positioned on the left with generous spacing) */}
                 <div 
-                  className="absolute left-12 md:left-[160px] bottom-[70px] z-20 select-none w-[calc(100%-96px)] md:w-[calc(100%-320px)] overflow-hidden"
+                  className="absolute left-6 right-6 md:left-[160px] md:right-auto bottom-[70px] z-20 select-none w-[calc(100%-48px)] md:w-[calc(100%-320px)] overflow-hidden"
                   id="hero-massive-title"
                 >
-                  <h1 className="font-display font-[800] leading-[0.9] text-white uppercase tracking-tighter text-[clamp(3rem,10vw,110px)] text-left drop-shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
+                  <h1 className="font-display font-[800] leading-[0.9] text-white uppercase tracking-tighter text-[clamp(2.5rem,10vw,110px)] text-center md:text-left drop-shadow-[0_4px_16px_rgba(0,0,0,0.4)]">
                     ZAMEER STUDIO
                   </h1>
                 </div>
