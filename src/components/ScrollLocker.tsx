@@ -35,8 +35,9 @@ export const ScrollLocker = ({ children, onNext, onPrev, className = "", id }: S
     };
     
     const handleWheel = (e: WheelEvent) => {
-      const isAtTop = el.scrollTop <= 0;
-      const isAtBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight - 2;
+      const scrollableHeight = el.scrollHeight - el.clientHeight;
+      const isAtTop = el.scrollTop <= 8;
+      const isAtBottom = scrollableHeight <= 10 || el.scrollTop >= scrollableHeight - 8;
 
       if (e.deltaY > 0 && isAtBottom) {
         handleNext();
@@ -52,7 +53,9 @@ export const ScrollLocker = ({ children, onNext, onPrev, className = "", id }: S
         return;
       }
       
-      e.stopPropagation();
+      if (scrollableHeight > 10) {
+        e.stopPropagation();
+      }
     };
     
     const handleTouchStart = (e: TouchEvent) => {
@@ -63,24 +66,26 @@ export const ScrollLocker = ({ children, onNext, onPrev, className = "", id }: S
       const touchY = e.touches[0].clientY;
       const deltaY = touchStartY - touchY;
       
-      const isAtTop = el.scrollTop <= 0;
-      const isAtBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight - 2;
+      const scrollableHeight = el.scrollHeight - el.clientHeight;
+      const isAtTop = el.scrollTop <= 8;
+      const isAtBottom = scrollableHeight <= 10 || el.scrollTop >= scrollableHeight - 8;
 
-      // Only trigger onNext/onPrev if there's significant movement to avoid accidental triggers
-      if (deltaY > 10 && isAtBottom) {
+      if (deltaY > 15 && isAtBottom) {
         handleNext();
         e.preventDefault();
         e.stopPropagation();
         return;
       }
-      if (deltaY < -10 && isAtTop) {
+      if (deltaY < -15 && isAtTop) {
         handlePrev();
         e.preventDefault();
         e.stopPropagation();
         return;
       }
       
-      e.stopPropagation();
+      if (scrollableHeight > 10) {
+        e.stopPropagation();
+      }
     };
     
     el.addEventListener("wheel", handleWheel, { passive: false });

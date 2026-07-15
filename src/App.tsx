@@ -270,7 +270,7 @@ export default function App() {
     }
 
     lenisRef.current.scrollTo(targetScroll, { 
-      duration: 1.4,
+      duration: 0.9,
       onComplete: () => {
         isScrollingProgrammaticallyRef.current = false;
       }
@@ -291,10 +291,9 @@ export default function App() {
     };
 
     window.addEventListener("wheel", preventUserScroll, { passive: false });
-    window.addEventListener("touchmove", preventUserScroll, { passive: false });
 
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 0.9,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
@@ -388,7 +387,7 @@ export default function App() {
             lastSlide = targetIndex;
 
             lenis.scrollTo(cappedSnapTarget, {
-              duration: 1.0,
+              duration: 0.7,
               easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
               onComplete: () => {
                 isScrollingProgrammaticallyRef.current = false;
@@ -409,7 +408,6 @@ export default function App() {
       }
       cancelAnimationFrame(rafId);
       window.removeEventListener("wheel", preventUserScroll);
-      window.removeEventListener("touchmove", preventUserScroll);
     };
   }, [isLoading]);
 
