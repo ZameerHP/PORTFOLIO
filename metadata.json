@@ -1,0 +1,6 @@
+{
+  "name": "Zameer Studio",
+  "description": "Zameer Studio - A sleek, high-end creative agency and portfolio website featuring premium design, smooth interactions, and cinematic visual styling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
