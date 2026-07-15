@@ -622,7 +622,7 @@ export default function App() {
               animate="animate"
               exit="exit"
               style={{ zIndex: 0, willChange: "transform, opacity" }}
-              className="absolute inset-0 w-full h-full flex flex-col justify-between overflow-hidden bg-[#050505]"
+              className="absolute inset-0 w-full h-full flex flex-col justify-between overflow-hidden bg-[#050505] pointer-events-none"
               id="hero-slide-screen"
             >
               {/* Full-screen Cinematic Background Image with precise visual overlays */}
@@ -733,7 +733,7 @@ export default function App() {
               animate="animate"
               exit="exit"
               style={{ zIndex: 1, willChange: "transform, opacity" }}
-              className="absolute inset-0 w-full h-full bg-[#ff4f1d] flex flex-col justify-center overflow-hidden"
+              className="absolute inset-0 w-full h-full bg-[#ff4f1d] flex flex-col justify-center overflow-hidden pointer-events-none"
               id="about-slide-screen"
             >
               <motion.div 
@@ -792,7 +792,7 @@ export default function App() {
                         animate: { opacity: 1, y: 0, transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] } }
                       }}
                       whileHover={{ y: -8, scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}
-                      className="bg-[#f2ece4] rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm cursor-default h-full min-h-[190px] transition-all duration-400"
+                      className="bg-[#f2ece4] rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm cursor-default h-full min-h-[190px] transition-all duration-400 pointer-events-auto"
                     >
                       <div className="flex items-end gap-2.5 mb-3">
                         <span className="font-anton text-black text-5xl md:text-5xl leading-[0.85] m-0 p-0">150+</span>
@@ -810,7 +810,7 @@ export default function App() {
                         animate: { opacity: 1, y: 0, transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] } }
                       }}
                       whileHover={{ y: -8, scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
-                      className="bg-[#111111] rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm cursor-default h-full min-h-[190px] transition-all duration-400"
+                      className="bg-[#111111] rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm cursor-default h-full min-h-[190px] transition-all duration-400 pointer-events-auto"
                     >
                       <div className="flex items-end gap-3 mb-3">
                         <span className="font-anton text-white text-5xl md:text-5xl leading-[0.85] m-0 p-0">98%</span>
@@ -827,7 +827,7 @@ export default function App() {
                         animate: { opacity: 1, y: 0, transition: { duration: 1.4, ease: [0.22, 1, 0.36, 1] } }
                       }}
                       whileHover={{ y: -8, scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}
-                      className="bg-white rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm cursor-default h-full min-h-[190px] transition-all duration-400"
+                      className="bg-white rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm cursor-default h-full min-h-[190px] transition-all duration-400 pointer-events-auto"
                     >
                       <div className="flex items-end gap-2.5 mb-3">
                         <span className="font-anton text-black text-5xl md:text-5xl leading-[0.85] m-0 p-0">5+</span>
@@ -851,7 +851,7 @@ export default function App() {
                       onClick={() => setIsContactOpen(true)}
                       onMouseEnter={() => setCursorType("hover")}
                       onMouseLeave={() => setCursorType("default")}
-                      className="bg-white rounded-full flex items-center gap-6 pl-10 pr-2.5 py-2.5 shadow-sm hover:shadow-[0_12px_30px_rgba(0,0,0,0.15)] transition-all duration-400 group group-hover:scale-[1.02]"
+                      className="bg-white rounded-full flex items-center gap-6 pl-10 pr-2.5 py-2.5 shadow-sm hover:shadow-[0_12px_30px_rgba(0,0,0,0.15)] transition-all duration-400 group group-hover:scale-[1.02] pointer-events-auto"
                     >
                       <span className="font-sans font-bold text-[#111111] text-lg whitespace-nowrap tracking-tight">
                         Start Your Project
@@ -977,7 +977,7 @@ export default function App() {
               animate="animate"
               exit="exit"
               style={{ zIndex: 4, willChange: "transform, opacity" }}
-              className="absolute inset-0 w-full h-full bg-[#F6EEDC] flex flex-col justify-center items-center overflow-hidden"
+              className="absolute inset-0 w-full h-full bg-[#F6EEDC] flex flex-col justify-center items-center overflow-hidden pointer-events-none"
               id="reveal-slide-screen"
             >
               {/* Central text WORK perfectly together at 0, splits apart as scroll */}
@@ -1008,10 +1008,12 @@ export default function App() {
               animate="animate"
               exit="exit"
               style={{ zIndex: 5, willChange: "transform, opacity" }}
-              className="absolute inset-0 w-full h-full bg-[#0d0d0d]"
+              className="absolute inset-0 w-full h-full bg-[#0d0d0d] pointer-events-none"
               id="skills-slide-screen"
             >
-              <Suspense fallback={null}><SkillsSection /></Suspense>
+              <div className="w-full h-full pointer-events-auto">
+                <Suspense fallback={null}><SkillsSection /></Suspense>
+              </div>
             </motion.div>
           )}
           {currentSlide === 5 && (
@@ -1023,7 +1025,7 @@ export default function App() {
               animate="animate"
               exit="exit"
               style={{ zIndex: 6, willChange: "transform, opacity" }}
-              className="absolute inset-0 w-full h-full bg-[#121212] flex flex-col justify-center"
+              className="absolute inset-0 w-full h-full bg-[#121212] flex flex-col justify-center pointer-events-none"
               id="testimonials-slide-screen"
             >
               <div className="max-w-7xl mx-auto px-6 md:px-12 w-full space-y-8" id="testimonials-container">
@@ -1042,7 +1044,7 @@ export default function App() {
                   {TESTIMONIALS.map((t, idx) => (
                     <div 
                       key={idx}
-                      className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-700"
+                      className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-between gap-4 hover:border-white/15 transition-all duration-700 pointer-events-auto"
                       id={`testimonial-card-${idx}`}
                     >
                       <p className="text-white/80 text-xs italic leading-relaxed" id={`testimonial-text-${idx}`}>
